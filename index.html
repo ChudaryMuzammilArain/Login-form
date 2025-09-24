@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <style>
+    body {
+     font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+      /* Wolf background with a dark overlay */
+      body {
+  background: url("./images/pexels-steve-130217-397857.jpg") no-repeat center center fixed;
+  background-size: cover; /* shows full image *   /* fill empty space with black */
+}
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.9); /* semi-transparent */
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0px 6px 18px rgba(0,0,0,0.4);
+      width: 320px;
+      text-align: center;
+    }
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #222;
+    }
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 12px;
+      background: #007BFF;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .login-container button:hover {
+      background: #0056b3;
+    }
+    .message {
+      margin-top: 15px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <input type="email" id="email" placeholder="Enter your email" required />
+    <input type="password" id="password" placeholder="Enter your password" required />
+    <button onclick="login()">Login</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    function login() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const messageBox = document.getElementById("message");
+
+      // Hardcoded valid credentials
+      const validEmail = "test@example.com";
+      const validPassword = "123456";
+
+      if (email === "" || password === "") {
+        messageBox.textContent = "Please fill in both fields.";
+        messageBox.style.color = "red";
+      } else if (email === validEmail && password === validPassword) {
+        messageBox.textContent = "Login successful! ✅";
+        messageBox.style.color = "green";
+      } else {
+        messageBox.textContent = "Invalid email or password ❌";
+        messageBox.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
